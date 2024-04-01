@@ -9,5 +9,6 @@ COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install
 COPY . .
+RUN chmod 777 -R ./app
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
