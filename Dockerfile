@@ -1,4 +1,5 @@
 FROM ruby:2.5.9-alpine
+RUN apk add mysql-dev
 RUN apk add \
     build-base \
     postgresql-dev \

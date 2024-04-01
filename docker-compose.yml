@@ -15,23 +15,27 @@ services:
     build: ./
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWD: example
-      POSTGRES_HOST: db
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_HOST: db
     ports:
       - 3000:3000
     volumes:
       - ./:/app
   db:
-    image: postgres:alpine3.15
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
-    ports:
-      - '5432:5432'
+    image: mysql:8.0
     volumes:
-      - pgdb:/var/lib/postgresql/data
+      - dbdata:/var/lib/mysql
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    ports:
+      - '${DB_PORT:-3306}:${DB_PORT:-3306}'
 volumes:
-  pgdb:
+  dbdata:
     driver: local
