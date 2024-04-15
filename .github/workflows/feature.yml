@@ -1,0 +1,16 @@
+name: Feature
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  test:
+    uses: ./.github/workflows/_reusable-test.yml
+    with:
+      environment: test

@@ -1,0 +1,31 @@
+name: 'Reusable Test'
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: 'test'
+        required: true
+        type: string
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make .env, overridden by secret server environment var
+        run: cp .env.${{ inputs.environment }} .env
+
+      - name: Build
+        uses: ./.github/actions/build
+
+      - name: Run RuboCop
+        run: bundle exec rubocop
+      - name: Run scss-lint
+        run: bundle exec scss-lint --config .scss-lint.yml
+      - name: Run Brakeman
+        run: bundle exec brakeman
+      - name: Setup Database
+        run: bundle exec rake db:create db:test:prepare
+      - name: Run RSpec
+        run: bundle exec rspec --color --require rails_helper --fail-fast

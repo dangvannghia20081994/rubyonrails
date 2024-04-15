@@ -1,0 +1,38 @@
+name: "Ruby on Rails CI"
+description: "Setup environment ruby on rails"
+runs:
+  using: composite
+  steps:
+    - name: Install Ruby and gems
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.5.9'
+        bundler-cache: true
+    - name: Install Mecab
+      run: |
+        cd /tmp \
+        && curl -L -o mecab-0.996.tar.gz "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-0.996.tar.gz" \
+        && tar zxfv mecab-0.996.tar.gz \
+        && cd mecab-0.996 && ./configure --with-charset="utf8" && make && make install \
+        && sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf" \
+        && ldconfig
+      shell: bash
+    - name: Mecab ipadic neologd and Mecab ipadic
+      run: |
+        cd /tmp \
+        && curl -L -o mecab-ipadic-neologd.zip "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-ipadic-neologd.zip" \
+        && unzip mecab-ipadic-neologd.zip \
+        && cd mecab-ipadic-neologd \
+        && yes "yes" | ./bin/install-mecab-ipadic-neologd -n
+      shell: bash
+    - name: Remove tmp
+      run: rm -rf /tmp/mecab-*
+      shell: bash
+    - name: Run compile assets
+      run:
+        bundle exec rake assets:clobber
+        bundle exec rake assets:precompile
+      shell: bash
+    - name: File and Directory permissions
+      run: chmod 777 -R tmp/
+      shell: bash

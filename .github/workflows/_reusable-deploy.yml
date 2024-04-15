@@ -1,0 +1,77 @@
+name: Reusable Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: 'staging or production'
+        required: true
+        type: string
+      google-service-account-pj-no:
+        description: 'Google Cloud Project No, e.g. 740173141900'
+        required: true
+        type: string
+      google-service-account:
+        description: 'Google Cloud Service Account For Registry, Deploying, etc.'
+        required: true
+        type: string
+      google-pj-id:
+        description: 'Google Cloud Project ID, e.g. prj-ichioshi-s-8c70'
+        required: true
+        type: string
+      google-registry-location:
+        description: 'Host name of Container Registry Location'
+        required: true
+        type: string
+      google-identity-pools:
+        description: 'Workload Identity Pools'
+        required: true
+        type: string
+      cloudrun-min-instances:
+        description: 'Cloud Run Min Instances'
+        required: true
+        type: string
+      cloudrun-region:
+        description: 'Google Cloud Run Region Name e.g. asia-east1'
+        required: true
+        type: string
+      cloudrun-service-name:
+        description: 'Google Cloud Run Service Name'
+        required: true
+        type: string
+      cloudrun-service-account:
+        description: 'Google Cloud Run Service Account'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 'Authenticate to Google Cloud'
+        id: 'auth'
+        uses: google-github-actions/auth@v1
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: projects/${{ inputs.google-service-account-pj-no }}/locations/global/workloadIdentityPools/${{ inputs.google-identity-pools }}/providers/docomo
+          service_account: ${{ inputs.google-service-account }}
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '465.0.0'
+
+      - name: Setup deploy yaml file
+        run: |
+          envsubst < yaml_files/${{ inputs.environment }}/deploy-cloudrun-${{ inputs.environment }}.yaml > ./deploy-cloudrun.yaml
+        env:
+          CLOUDRUN_SERVICE_NAME: ${{ inputs.cloudrun-service-name }}
+          CLOUDRUN_REGION: ${{ inputs.cloudrun-region }}
+          CLOUDRUN_IMAGE_NGINX: ${{ inputs.google-registry-location }}/${{ inputs.google-pj-id }}/${{ github.repository }}/nginx:sha-${{ github.sha }}
+          CLOUDRUN_IMAGE_APP: ${{ inputs.google-registry-location }}/${{ inputs.google-pj-id }}/${{ github.repository }}/app:sha-${{ github.sha }}
+          CLOUDRUN_SERVICE_ACCOUNT: ${{ inputs.cloudrun-service-account }}
+
+      - name: Deploy to Cloud Run
+        run: gcloud run services replace deploy-cloudrun.yaml

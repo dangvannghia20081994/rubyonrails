@@ -1,0 +1,38 @@
+name: Staging
+
+on:
+  push:
+    branches:
+      - staging/*
+      - release/*
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  build-push-staging:
+    uses: ./.github/workflows/_reusable-build-push.yml
+    with:
+      app-name: conobie
+      environment: staging
+      google-service-account-pj-no: 584976363115
+      google-service-account: s-github-actions@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
+      google-pj-id: prj-docomo-s-dbb4cffc
+      google-registry-location: asia-east1-docker.pkg.dev
+      google-identity-pools: s-github-actions
+  deploy-staging:
+    needs:
+      - build-push-staging
+    uses: ./.github/workflows/_reusable-deploy.yml
+    with:
+      environment: staging
+      google-service-account-pj-no: 584976363115
+      google-service-account: s-github-actions@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
+      google-pj-id: prj-docomo-s-dbb4cffc
+      google-registry-location: asia-east1-docker.pkg.dev
+      google-identity-pools: s-github-actions
+      cloudrun-min-instances: 0
+      cloudrun-region: asia-east1
+      cloudrun-service-name: s-ichi-oshi
+      cloudrun-service-account: cr-s-ichi-oshi@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com

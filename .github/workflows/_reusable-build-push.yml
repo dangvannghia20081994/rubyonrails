@@ -1,0 +1,92 @@
+name: Reusable Build Push
+
+on:
+  workflow_call:
+    inputs:
+      app-name:
+        description: 'conobie'
+        required: true
+        type: string
+      environment:
+        description: 'staging or production'
+        required: true
+        type: string
+      google-service-account-pj-no:
+        description: 'Google Cloud Project No, e.g. 740173141900'
+        required: true
+        type: string
+      google-service-account:
+        description: 'Google Cloud Service Account For Registry, Deploying, etc.'
+        required: true
+        type: string
+      google-pj-id:
+        description: 'Google Cloud Project ID, e.g. prj-conobie-s-8c70'
+        required: true
+        type: string
+      google-registry-location:
+        description: 'Host name of Container Registry Location'
+        required: true
+        type: string
+      google-identity-pools:
+        description: 'Workload Identity Pools'
+        required: true
+        type: string
+
+jobs:
+  docker-build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Make .env, overridden by secret server environment var
+        run: cp .env.${{ inputs.environment }} .env
+
+      - name: Build
+        uses: ./.github/actions/build
+
+      - name: 'Authenticate to Google Cloud'
+        id: 'auth'
+        uses: google-github-actions/auth@v1
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: projects/${{ inputs.google-service-account-pj-no }}/locations/global/workloadIdentityPools/${{ inputs.google-identity-pools }}/providers/docomo
+          service_account: ${{ inputs.google-service-account }}
+
+      - name: 'Login to Google Registry'
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ inputs.google-registry-location }}
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '465.0.0'
+
+      - name: 'Add credHelper to Docker configuration file'
+        shell: bash
+        run: gcloud auth configure-docker ${{ inputs.google-registry-location }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Docker meta for app
+        id: app
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ inputs.google-registry-location }}/${{ inputs.google-pj-id }}/${{ github.repository }}/app
+          tags: |
+            type=sha,prefix=sha-,suffix=,format=long
+          flavor: |
+            latest=true
+
+      - name: Build and Push the Docker image to Google Registry
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./docker/Dockerfile
+          provenance: false
+          push: true
+          tags: ${{ steps.app.outputs.tags }}
