@@ -13,9 +13,9 @@ runs:
         cd /tmp \
         && curl -L -o mecab-0.996.tar.gz "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-0.996.tar.gz" \
         && tar zxfv mecab-0.996.tar.gz \
-        && cd mecab-0.996 && ./configure --with-charset="utf8" && make && make install \
+        && cd mecab-0.996 && ./configure --with-charset="utf8" && make && sudo make install \
         && sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf" \
-        && ldconfig
+        && sudo ldconfig
       shell: bash
     - name: Mecab ipadic neologd and Mecab ipadic
       run: |
