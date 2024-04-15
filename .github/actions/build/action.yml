@@ -10,20 +10,22 @@ runs:
         bundler-cache: true
     - name: Install Mecab
       run: |
-        cd /tmp \
-        && curl -L -o mecab-0.996.tar.gz "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-0.996.tar.gz" \
-        && tar zxfv mecab-0.996.tar.gz \
-        && cd mecab-0.996 && ./configure --with-charset="utf8" && make && sudo make install \
-        && sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf" \
-        && sudo ldconfig
+        cd /tmp/
+        curl -L -o mecab-0.996.tar.gz "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-0.996.tar.gz"
+        tar zxfv mecab-0.996.tar.gz
+        cd mecab-0.996
+        ./configure --with-charset="utf8"
+        make
+        sudo make install
+        sudo ldconfig
       shell: bash
     - name: Mecab ipadic neologd and Mecab ipadic
       run: |
-        cd /tmp \
-        && curl -L -o mecab-ipadic-neologd.zip "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-ipadic-neologd.zip" \
-        && unzip mecab-ipadic-neologd.zip \
-        && cd mecab-ipadic-neologd \
-        && yes "yes" | ./bin/install-mecab-ipadic-neologd -n
+        cd /tmp/
+        curl -L -o mecab-ipadic-neologd.zip "https://storage.googleapis.com/s-conobie-assets-29895/mecab/mecab-ipadic-neologd.zip"
+        unzip mecab-ipadic-neologd.zip
+        cd mecab-ipadic-neologd
+        yes "yes" | ./bin/install-mecab-ipadic-neologd
       shell: bash
     - name: Remove tmp
       run: rm -rf /tmp/mecab-*
