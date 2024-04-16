@@ -1,0 +1,26 @@
+name: Staging Batch
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy-staging:
+    strategy:
+      matrix:
+        tasks:
+          - cp_relation_categories:execute
+          - cp_relation_categories:dump
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Check task ${{ matrix.tasks }}
+        run: |
+          echo s-cnb-${{ matrix.tasks//:/_ }}
+          echo ${{ matrix.tasks//:/_ }}@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
