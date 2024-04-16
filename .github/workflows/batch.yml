@@ -20,10 +20,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: character-replacement-test
-        run: |
-          DB_NAME=${ ${{matrix.tasks}} //:/_}
-          echo $DB_NAME
+      - uses: mad9000/actions-find-and-replace-string@5
+        with:
+            source: ${{ matrix.tasks }}
+            find: ':'
+            replace: '_'
       - name: Check task ${{ matrix.tasks }}
         run: |
           echo s-cnb-${{ matrix.tasks }}
