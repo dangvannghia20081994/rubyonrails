@@ -22,13 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: character-replacement-test
         run: |
-          REPO=$GITHUB_REPOSITORY
-          DB_NAME="${REPO//-/_}"
-          echo $DB_NAME
-      - name: character-replacement-test
-        run: |
-          REPO=${{matrix.tasks}}
-          DB_NAME="${REPO//-/_}"
+          DB_NAME="${${{matrix.tasks}}//:/_}"
           echo $DB_NAME
       - name: Check task ${{ matrix.tasks }}
         run: |
