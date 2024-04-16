@@ -8,6 +8,8 @@ on:
 permissions:
   contents: read
   id-token: write
+env:
+  DOMAIN_SERVICE_ACCOUNT: "@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com"
 
 jobs:
   deploy-staging:
@@ -30,4 +32,4 @@ jobs:
         run: |
           echo ${{ steps.replace.outputs.value }}
           echo s-cnb-${{ matrix.tasks }}
-          echo ${{ matrix.tasks}}@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
+          echo ${{ matrix.tasks}}$DOMAIN_SERVICE_ACCOUNT
