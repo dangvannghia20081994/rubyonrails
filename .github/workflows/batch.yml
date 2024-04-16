@@ -21,11 +21,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - uses: mad9000/actions-find-and-replace-string@5
+        id: replace
         with:
             source: ${{ matrix.tasks }}
             find: ':'
             replace: '_'
       - name: Check task ${{ matrix.tasks }}
         run: |
+          echo ${{ steps.replace.outputs }}
           echo s-cnb-${{ matrix.tasks }}
           echo ${{ matrix.tasks}}@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
