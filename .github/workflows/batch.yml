@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: character-replacement-test
         run: |
-          DB_NAME="${${{matrix.tasks}}//:/_}"
+          DB_NAME=${ ${{matrix.tasks}} //:/_}
           echo $DB_NAME
       - name: Check task ${{ matrix.tasks }}
         run: |
