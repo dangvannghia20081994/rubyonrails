@@ -28,6 +28,6 @@ jobs:
             replace: '_'
       - name: Check task ${{ matrix.tasks }}
         run: |
-          echo ${{ steps.replace.outputs }}
+          echo ${{ steps.replace.outputs.value }}
           echo s-cnb-${{ matrix.tasks }}
           echo ${{ matrix.tasks}}@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
