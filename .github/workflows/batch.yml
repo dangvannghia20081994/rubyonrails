@@ -20,7 +20,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: character-replacement-test
+        run: |
+          REPO=$GITHUB_REPOSITORY
+          DB_NAME="${REPO//-/_}"
+          echo $DB_NAME
+      - name: character-replacement-test
+        run: |
+          REPO=${{matrix.tasks}}
+          DB_NAME="${REPO//-/_}"
+          echo $DB_NAME
       - name: Check task ${{ matrix.tasks }}
         run: |
-          echo s-cnb-${{ matrix.tasks //:/_ }}
+          echo s-cnb-${{ matrix.tasks }}
           echo ${{ matrix.tasks}}@prj-docomo-s-dbb4cffc.iam.gserviceaccount.com
