@@ -3,7 +3,7 @@ name: Feature
 on:
   push:
     branches:
-      - 'feature/*'
+      - 'feature-test/*'
 
 permissions:
   contents: read
