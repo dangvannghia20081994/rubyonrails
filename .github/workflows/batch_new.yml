@@ -13,19 +13,25 @@ env:
   PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
 
 jobs:
+  matrix:
+    name: Generate output
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.step3.outputs.matrix }}
+    steps:
+      - name: Checkout to repository
+        uses: actions/checkout@v4
+
+      - id: step3
+        name: Convert config from YAML to JSON and pass it as value to matrix
+        run: |
+          matrix="matrix=$(yq -P -o=json ./.github/workflows/config.yml | jq -c .)"
+          echo $matrix
+          echo $matrix >> $GITHUB_OUTPUT
   deploy-staging:
+    needs: [matrix]
     strategy:
-      matrix:
-        include:
-          - batch-name: $PREFIX"payment-info-execute"
-            batch-args: "payment_info:execute"
-            service-account-name: payment-info-execute$PREPEND
-          - batch-name: $PREFIX"autoload-control-execute"
-            batch-args: "autoload_control:execute"
-            service-account-name: autoload-control-execute$PREPEND
-          - batch-name: $PREFIX"user-token-delete-expired"
-            batch-args: "user_token:delete_expired"
-            service-account-name: user-token-delete-expired$PREPEND
+      matrix: ${{ fromJSON(needs.matrix.outputs.matrix) }}
 
     runs-on: ubuntu-latest
     steps:
