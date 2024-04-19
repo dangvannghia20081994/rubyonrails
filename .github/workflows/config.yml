@@ -1,116 +1,116 @@
 include:
-  - batch-name: $PREFIXpayment-info-execute
+  - batch-name: ${{env.PREFIX}}payment-info-execute
     batch-args: payment_info:execute
-    service-account-name: payment-info-execute$PREPEND
-  - batch-name: $PREFIXautoload-control-execute
+    service-account-name: payment-info-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}autoload-control-execute
     batch-args: autoload_control:execute
-    service-account-name: autoload-control-execute$PREPEND
-  - batch-name: $PREFIXuser-token-delete-expired
+    service-account-name: autoload-control-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}user-token-delete-expired
     batch-args: user_token:delete_expired
-    service-account-name: user-token-delete-expired$PREPEND
-  - batch-name: $PREFIXrepublish-article-execute
+    service-account-name: user-token-delete-expired${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}republish-article-execute
     batch-args: republish_article:execute
-    service-account-name: republish-article-execute$PREPEND
-  - batch-name: $PREFIXtmp-cache-clear
+    service-account-name: republish-article-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}tmp-cache-clear
     batch-args: tmp:cache:clear
-    service-account-name: tmp-cache-clear$PREPEND
-  - batch-name: $PREFIXupdate-promotion-video-execute
+    service-account-name: tmp-cache-clear${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}update-promotion-video-execute
     batch-args: update_promotion_video:execute
-    service-account-name: update-promotion-video-execute$PREPEND
-  - batch-name: $PREFIXaggregate-article-score
+    service-account-name: update-promotion-video-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}aggregate-article-score
     batch-args: aggregate:article_score
-    service-account-name: aggregate-article-score$PREPEND
-  - batch-name: $PREFIXaggregate-summary
+    service-account-name: aggregate-article-score${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}aggregate-summary
     batch-args: aggregate:summary
-    service-account-name: aggregate-summary$PREPEND
-  - batch-name: $PREFIXupdate-pageviews-sync-ga
+    service-account-name: aggregate-summary${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}update-pageviews-sync-ga
     batch-args: update_pageviews:sync_ga
-    service-account-name: update-pageviews-sync-ga$PREPEND
-  - batch-name: $PREFIXarticle-published-mail-send
+    service-account-name: update-pageviews-sync-ga${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}article-published-mail-send
     batch-args: article_published_mail:send
-    service-account-name: article-published-mail-send$PREPEND
-  - batch-name: $PREFIXmail-magazine-deliver
+    service-account-name: article-published-mail-send${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}mail-magazine-deliver
     batch-args: mail_magazine:deliver
-    service-account-name: mail-magazine-deliver$PREPEND
-  - batch-name: $PREFIXnocopype-today
+    service-account-name: mail-magazine-deliver${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}nocopype-today
     batch-args: nocopype:today
-    service-account-name: nocopype-today$PREPEND
-  - batch-name: $PREFIXnotify-admins-execute
+    service-account-name: nocopype-today${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}notify-admins-execute
     batch-args: notify_admins:execute
-    service-account-name: notify-admins-execute$PREPEND
-  - batch-name: $PREFIXrss-comotto-generate-rss-relations
+    service-account-name: notify-admins-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-comotto-generate-rss-relations
     batch-args: rss_comotto:generate_rss_relations
-    service-account-name: rss-comotto-generate-rss-relations$PREPEND
-  - batch-name: $PREFIXrss-dmenu-news-generate-rss-relations
+    service-account-name: rss-comotto-generate-rss-relations${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-dmenu-news-generate-rss-relations
     batch-args: rss_dmenu_news:generate_rss_relations
-    service-account-name: rss-dmenu-news-generate-rss-relations$PREPEND
-  - batch-name: $PREFIXrss-relation-excute-smartnew
+    service-account-name: rss-dmenu-news-generate-rss-relations${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-excute-smartnew
     batch-args: rss_relation:excute_smartnew
-    service-account-name: rss-relation-excute-smartnew$PREPEND
-  - batch-name: $PREFIXscraper-rss-execute
+    service-account-name: rss-relation-excute-smartnew${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}scraper-rss-execute
     batch-args: scraper_rss:execute
-    service-account-name: scraper-rss-execute$PREPEND
-  - batch-name: $PREFIXcp-relation-categories-execute
+    service-account-name: scraper-rss-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}cp-relation-categories-execute
     batch-args: cp_relation_categories:execute
-    service-account-name: cp-relation-categories-execute$PREPEND
-  - batch-name: $PREFIXmedia-rss-feed-execute
+    service-account-name: cp-relation-categories-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}media-rss-feed-execute
     batch-args: media_rss_feed:execute
-    service-account-name: media-rss-feed-execute$PREPEND
-  - batch-name: $PREFIXgenerate-popular-execute
+    service-account-name: media-rss-feed-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}generate-popular-execute
     batch-args: generate_popular:execute
-    service-account-name: generate-popular-execute$PREPEND
-  - batch-name: $PREFIXsurvey-result-gen-csv
+    service-account-name: generate-popular-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}survey-result-gen-csv
     batch-args: survey_result:gen_csv
-    service-account-name: survey-result-gen-csv$PREPEND
-  - batch-name: $PREFIXexport-dmenu-xml
+    service-account-name: survey-result-gen-csv${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}export-dmenu-xml
     batch-args: export:dmenu_xml
-    service-account-name: export-dmenu-xml$PREPEND
-  - batch-name: $PREFIXexport-dmenu-mmp-xml
+    service-account-name: export-dmenu-xml${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}export-dmenu-mmp-xml
     batch-args: export:dmenu_mmp_xml
-    service-account-name: export-dmenu-mmp-xml$PREPEND
-  - batch-name: $PREFIXsurvey-result-gen-csv-article
+    service-account-name: export-dmenu-mmp-xml${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}survey-result-gen-csv-article
     batch-args: survey_result:gen_csv_article
-    service-account-name: survey-result-gen-csv-article$PREPEND
-  - batch-name: $PREFIXremove-log-execute
+    service-account-name: survey-result-gen-csv-article${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}remove-log-execute
     batch-args: remove_log:execute
-    service-account-name: remove-log-execute$PREPEND
-  - batch-name: $PREFIXrss-comotto-export-to-xml
+    service-account-name: remove-log-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-comotto-export-to-xml
     batch-args: rss_comotto:export_to_xml
-    service-account-name: rss-comotto-export-to-xml$PREPEND
-  - batch-name: $PREFIXrss-dmenu-news-export-to-file
+    service-account-name: rss-comotto-export-to-xml${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-dmenu-news-export-to-file
     batch-args: rss_dmenu_news:export_to_file
-    service-account-name: rss-dmenu-news-export-to-file$PREPEND
-  - batch-name: $PREFIXrss-relation-export-file
+    service-account-name: rss-dmenu-news-export-to-file${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-export-file
     batch-args: rss_relation:export_file
-    service-account-name: rss-relation-export-file$PREPEND
-  - batch-name: $PREFIXrss-relation-excute-google-news
+    service-account-name: rss-relation-export-file${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-excute-google-news
     batch-args: rss_relation:excute_google_news
-    service-account-name: rss-relation-excute-google-news$PREPEND
-  - batch-name: $PREFIXrss-comotto-generate-rss-relations
+    service-account-name: rss-relation-excute-google-news${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-comotto-generate-rss-relations
     batch-args: rss_comotto:generate_rss_relations
-    service-account-name: rss-comotto-generate-rss-relations$PREPEND
-  - batch-name: $PREFIXrss-dmenu-news-generate-rss-relations
+    service-account-name: rss-comotto-generate-rss-relations${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-dmenu-news-generate-rss-relations
     batch-args: rss_dmenu_news:generate_rss_relations
-    service-account-name: rss-dmenu-news-generate-rss-relations$PREPEND
-  - batch-name: $PREFIXrss-relation-excute-smartnew
+    service-account-name: rss-dmenu-news-generate-rss-relations${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-excute-smartnew
     batch-args: rss_relation:excute_smartnew
-    service-account-name: rss-relation-excute-smartnew$PREPEND
-  - batch-name: $PREFIXscraper-rss-execute
+    service-account-name: rss-relation-excute-smartnew${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}scraper-rss-execute
     batch-args: scraper_rss:execute
-    service-account-name: scraper-rss-execute$PREPEND
-  - batch-name: $PREFIXcp-relation-categories-execute
+    service-account-name: scraper-rss-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}cp-relation-categories-execute
     batch-args: cp_relation_categories:execute
-    service-account-name: cp-relation-categories-execute$PREPEND
-  - batch-name: $PREFIXmedia-rss-feed-execute
+    service-account-name: cp-relation-categories-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}media-rss-feed-execute
     batch-args: media_rss_feed:execute
-    service-account-name: media-rss-feed-execute$PREPEND
-  - batch-name: $PREFIXrss-dmenu-news-export-to-file
+    service-account-name: media-rss-feed-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-dmenu-news-export-to-file
     batch-args: rss_dmenu_news:export_to_file
-    service-account-name: rss-dmenu-news-export-to-file$PREPEND
-  - batch-name: $PREFIXrss-relation-export-file
+    service-account-name: rss-dmenu-news-export-to-file${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-export-file
     batch-args: rss_relation:export_file
-    service-account-name: rss-relation-export-file$PREPEND
-  - batch-name: $PREFIXrss-relation-excute-google-news
+    service-account-name: rss-relation-export-file${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-excute-google-news
     batch-args: rss_relation:excute_google_news
-    service-account-name: rss-relation-excute-google-news$PREPEND
+    service-account-name: rss-relation-excute-google-news${{env.PREPEND}}
 
