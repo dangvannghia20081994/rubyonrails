@@ -1,10 +1,115 @@
 include:
-    - batch-name: $PREFIX"payment-info-execute"
-      batch-args: payment_info:execute
-      service-account-name: payment-info-execute$PREPEND
-    - batch-name: $PREFIX"autoload-control-execute"
-      batch-args: autoload_control:execute
-      service-account-name: autoload-control-execute$PREPEND
-    - batch-name: $PREFIX"user-token-delete-expired"
-      batch-args: user_token:delete_expired
-      service-account-name: user-token-delete-expired$PREPEND
+  - batch-name: $PREFIX"payment-info-execute"
+    batch-args: "payment_info:execute"
+    service-account-name: payment-info-execute$PREPEND
+  - batch-name: $PREFIX"autoload-control-execute"
+    batch-args: "autoload_control:execute"
+    service-account-name: autoload-control-execute$PREPEND
+  - batch-name: $PREFIX"user-token-delete-expired"
+    batch-args: "user_token:delete_expired"
+    service-account-name: user-token-delete-expired$PREPEND
+  - batch-name: $PREFIX"republish-article-execute"
+    batch-args: "republish_article:execute"
+    service-account-name: republish-article-execute$PREPEND
+  - batch-name: $PREFIX"tmp-cache-clear"
+    batch-args: "tmp:cache:clear"
+    service-account-name: tmp-cache-clear$PREPEND
+  - batch-name: $PREFIX"update-promotion-video-execute"
+    batch-args: "update_promotion_video:execute"
+    service-account-name: update-promotion-video-execute$PREPEND
+  - batch-name: $PREFIX"aggregate-article-score"
+    batch-args: "aggregate:article_score"
+    service-account-name: aggregate-article-score$PREPEND
+  - batch-name: $PREFIX"aggregate-summary"
+    batch-args: "aggregate:summary"
+    service-account-name: aggregate-summary$PREPEND
+  - batch-name: $PREFIX"update-pageviews-sync-ga"
+    batch-args: "update_pageviews:sync_ga"
+    service-account-name: update-pageviews-sync-ga$PREPEND
+  - batch-name: $PREFIX"article-published-mail-send"
+    batch-args: "article_published_mail:send"
+    service-account-name: article-published-mail-send$PREPEND
+  - batch-name: $PREFIX"mail-magazine-deliver"
+    batch-args: "mail_magazine:deliver"
+    service-account-name: mail-magazine-deliver$PREPEND
+  - batch-name: $PREFIX"nocopype-today"
+    batch-args: "nocopype:today"
+    service-account-name: nocopype-today$PREPEND
+  - batch-name: $PREFIX"notify-admins-execute"
+    batch-args: "notify_admins:execute"
+    service-account-name: notify-admins-execute$PREPEND
+  - batch-name: $PREFIX"rss-comotto-generate-rss-relations"
+    batch-args: "rss_comotto:generate_rss_relations"
+    service-account-name: rss-comotto-generate-rss-relations$PREPEND
+  - batch-name: $PREFIX"rss-dmenu-news-generate-rss-relations"
+    batch-args: "rss_dmenu_news:generate_rss_relations"
+    service-account-name: rss-dmenu-news-generate-rss-relations$PREPEND
+  - batch-name: $PREFIX"rss-relation-excute-smartnew"
+    batch-args: "rss_relation:excute_smartnew"
+    service-account-name: rss-relation-excute-smartnew$PREPEND
+  - batch-name: $PREFIX"scraper-rss-execute"
+    batch-args: "scraper_rss:execute"
+    service-account-name: scraper-rss-execute$PREPEND
+  - batch-name: $PREFIX"cp-relation-categories-execute"
+    batch-args: "cp_relation_categories:execute"
+    service-account-name: cp-relation-categories-execute$PREPEND
+  - batch-name: $PREFIX"media-rss-feed-execute"
+    batch-args: "media_rss_feed:execute"
+    service-account-name: media-rss-feed-execute$PREPEND
+  - batch-name: $PREFIX"generate-popular-execute"
+    batch-args: "generate_popular:execute"
+    service-account-name: generate-popular-execute$PREPEND
+  - batch-name: $PREFIX"survey-result-gen-csv"
+    batch-args: "survey_result:gen_csv"
+    service-account-name: survey-result-gen-csv$PREPEND
+  - batch-name: $PREFIX"export-dmenu-xml"
+    batch-args: "export:dmenu_xml"
+    service-account-name: export-dmenu-xml$PREPEND
+  - batch-name: $PREFIX"export-dmenu-mmp-xml"
+    batch-args: "export:dmenu_mmp_xml"
+    service-account-name: export-dmenu-mmp-xml$PREPEND
+  - batch-name: $PREFIX"survey-result-gen-csv-article"
+    batch-args: "survey_result:gen_csv_article"
+    service-account-name: survey-result-gen-csv-article$PREPEND
+  - batch-name: $PREFIX"remove-log-execute"
+    batch-args: "remove_log:execute"
+    service-account-name: remove-log-execute$PREPEND
+  - batch-name: $PREFIX"rss-comotto-export-to-xml"
+    batch-args: "rss_comotto:export_to_xml"
+    service-account-name: rss-comotto-export-to-xml$PREPEND
+  - batch-name: $PREFIX"rss-dmenu-news-export-to-file"
+    batch-args: "rss_dmenu_news:export_to_file"
+    service-account-name: rss-dmenu-news-export-to-file$PREPEND
+  - batch-name: $PREFIX"rss-relation-export-file"
+    batch-args: "rss_relation:export_file"
+    service-account-name: rss-relation-export-file$PREPEND
+  - batch-name: $PREFIX"rss-relation-excute-google-news"
+    batch-args: "rss_relation:excute_google_news"
+    service-account-name: rss-relation-excute-google-news$PREPEND
+  - batch-name: $PREFIX"rss-comotto-generate-rss-relations"
+    batch-args: "rss_comotto:generate_rss_relations"
+    service-account-name: rss-comotto-generate-rss-relations$PREPEND
+  - batch-name: $PREFIX"rss-dmenu-news-generate-rss-relations"
+    batch-args: "rss_dmenu_news:generate_rss_relations"
+    service-account-name: rss-dmenu-news-generate-rss-relations$PREPEND
+  - batch-name: $PREFIX"rss-relation-excute-smartnew"
+    batch-args: "rss_relation:excute_smartnew"
+    service-account-name: rss-relation-excute-smartnew$PREPEND
+  - batch-name: $PREFIX"scraper-rss-execute"
+    batch-args: "scraper_rss:execute"
+    service-account-name: scraper-rss-execute$PREPEND
+  - batch-name: $PREFIX"cp-relation-categories-execute"
+    batch-args: "cp_relation_categories:execute"
+    service-account-name: cp-relation-categories-execute$PREPEND
+  - batch-name: $PREFIX"media-rss-feed-execute"
+    batch-args: "media_rss_feed:execute"
+    service-account-name: media-rss-feed-execute$PREPEND
+  - batch-name: $PREFIX"rss-dmenu-news-export-to-file"
+    batch-args: "rss_dmenu_news:export_to_file"
+    service-account-name: rss-dmenu-news-export-to-file$PREPEND
+  - batch-name: $PREFIX"rss-relation-export-file"
+    batch-args: "rss_relation:export_file"
+    service-account-name: rss-relation-export-file$PREPEND
+  - batch-name: $PREFIX"rss-relation-excute-google-news"
+    batch-args: "rss_relation:excute_google_news"
+    service-account-name: rss-relation-excute-google-news$PREPEND
