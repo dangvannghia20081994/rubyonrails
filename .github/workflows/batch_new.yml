@@ -9,7 +9,7 @@ permissions:
   contents: read
   id-token: write
 env:
-  PREFIX: "p-cnb-"
+  PREFIX: p-cnb-
   PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
 
 jobs:
@@ -17,12 +17,12 @@ jobs:
     name: Generate output
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.step3.outputs.matrix }}
+      matrix: ${{ steps.step1.outputs.matrix }}
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
 
-      - id: step3
+      - id: step1
         name: Convert config from YAML to JSON and pass it as value to matrix
         run: |
           matrix="matrix=$(yq -P -o=json ./.github/workflows/config.yml | jq -c .)"
