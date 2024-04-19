@@ -1,0 +1,43 @@
+name: Staging Batch
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+permissions:
+  contents: read
+  id-token: write
+env:
+  PREFIX: "p-cnb-"
+  PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
+
+jobs:
+  deploy-staging:
+    strategy:
+      matrix:
+        include:
+          - batch-name: $PREFIX"payment-info-execute"
+            batch-args: "payment_info:execute"
+            service-account-name: payment-info-execute$PREPEND
+          - batch-name: $PREFIX"autoload-control-execute"
+            batch-args: "autoload_control:execute"
+            service-account-name: autoload-control-execute$PREPEND
+          - batch-name: $PREFIX"user-token-delete-expired"
+            batch-args: "user_token:delete_expired"
+            service-account-name: user-token-delete-expired$PREPEND
+          - batch-name: $PREFIX"republish-article-execute"
+            batch-args: "republish_article:execute"
+            service-account-name: republish-article-execute$PREPEND
+          - batch-name: $PREFIX"tmp-cache-clear"
+            batch-args: "tmp:cache:clear"
+            service-account-name: tmp-cache-clear$PREPEND
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Check task ${{ matrix.batch-name }}
+        run: |
+          echo ${{ matrix.batch-name}}
+          echo ${{ matrix.service-account-name}}
