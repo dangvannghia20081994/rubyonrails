@@ -1,10 +1,10 @@
 include:
-    - batch-name: ${{ env.PREFIX }}payment-info-execute
+    - batch-name: $PREFIX"payment-info-execute"
       batch-args: payment_info:execute
-      service-account-name: payment-info-execute${{ env.PREPEND }}
-    - batch-name: ${{ env.PREFIX }}autoload-control-execute
+      service-account-name: payment-info-execute$PREPEND
+    - batch-name: $PREFIX"autoload-control-execute"
       batch-args: autoload_control:execute
-      service-account-name: autoload-control-execute${{ env.PREPEND }}
-    - batch-name: ${{ env.PREFIX }}user-token-delete-expired
+      service-account-name: autoload-control-execute$PREPEND
+    - batch-name: $PREFIX"user-token-delete-expired"
       batch-args: user_token:delete_expired
-      service-account-name: user-token-delete-expired${{ env.PREPEND }}
+      service-account-name: user-token-delete-expired$PREPEND
