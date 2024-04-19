@@ -9,15 +9,16 @@ permissions:
   contents: read
   id-token: write
 
+env:
+  PREFIX: p-cnb-
+  PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
+
 jobs:
   matrix:
     name: Generate output
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.step1.outputs.matrix }}
-    env:
-      PREFIX: p-cnb-
-      PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
@@ -32,7 +33,6 @@ jobs:
     needs: [matrix]
     strategy:
       matrix: ${{ fromJSON(needs.matrix.outputs.matrix) }}
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
