@@ -1,4 +1,4 @@
 include:
   - batch-name: $PREFIX"payment-info-execute"
     batch-args: payment_info:execute
-    service-account-name: payment-info-execute${{ env.PREPEND }}
+    service-account-name: payment-info-execute$PREPEND
