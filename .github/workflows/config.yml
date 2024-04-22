@@ -86,132 +86,30 @@ include:
   - batch-name: ${{env.PREFIX}}rss-relation-excute-google-news
     batch-args: rss_relation:excute_google_news
     service-account-name: rss-relation-excute-google-news${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}article-master-update-bulk-update-republish
-    batch-args: article_master_update:bulk_update_republish
-    service-account-name: article-master-update-bulk-update-republish${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}change-analysis-category-execute
-    batch-args: change_analysis_category:execute
-    service-account-name: change-analysis-category-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}default-mymagazine-execute
-    batch-args: default_mymagazine:execute
-    service-account-name: default-mymagazine-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}default-mymagazine-create-categories
-    batch-args: default_mymagazine:create_categories
-    service-account-name: default-mymagazine-create-categories${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}god-slayer-execute
-    batch-args: god_slayer:execute
-    service-account-name: god-slayer-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}image-delete-all
-    batch-args: image_delete:all
-    service-account-name: image-delete-all${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}image-delete-execute
-    batch-args: image_delete:execute
-    service-account-name: image-delete-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}image-delete-remove-image-s3
-    batch-args: image_delete:remove_image_s3
-    service-account-name: image-delete-remove-image-s3${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}new-tag-auto-tagging
-    batch-args: new_tag:auto_tagging
-    service-account-name: new-tag-auto-tagging${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}paginate-articles-execute
-    batch-args: paginate_articles:execute
-    service-account-name: paginate-articles-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}push-autosend-execute
-    batch-args: push_autosend:execute
-    service-account-name: push-autosend-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}remove-accounts-execute
-    batch-args: remove_accounts:execute
-    service-account-name: remove-accounts-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}remove-users-execute
-    batch-args: remove_users:execute
-    service-account-name: remove-users-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}republish-article-create-republish
-    batch-args: republish_article:create_republish
-    service-account-name: republish-article-create-republish${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}batch-sync-app-views
-    batch-args: batch:sync_app_views
-    service-account-name: batch-sync-app-views${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}batch-sync-app-views-yesterday
-    batch-args: batch:sync_app_views_yesterday
-    service-account-name: batch-sync-app-views-yesterday${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}writer-books-execute
-    batch-args: writer_books:execute
-    service-account-name: writer-books-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}writer-permission-execute
-    batch-args: writer_permission:execute
-    service-account-name: writer-permission-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}amana-ids-sheet-write
-    batch-args: amana_ids_sheet:write
-    service-account-name: amana-ids-sheet-write${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}article-relation-update-for-old-data
-    batch-args: article_relation:update_for_old_data
-    service-account-name: article-relation-update-for-old-data${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}article-views-sync-ga
-    batch-args: article_views:sync_ga
-    service-account-name: article-views-sync-ga${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}set-annotation-options
-    batch-args: set_annotation_options
-    service-account-name: set-annotation-options${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}autoload-permit-at-app-permit-all
-    batch-args: autoload_permit_at_app:permit_all
-    service-account-name: autoload-permit-at-app-permit-all${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}autoload-permit-at-app-prohibit-all
-    batch-args: autoload_permit_at_app:prohibit_all
-    service-account-name: autoload-permit-at-app-prohibit-all${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}backup-pageviews-before-running-ga-sync-export-to-csv
-    batch-args: backup_pageviews_before_running_ga_sync:export_to_csv
-    service-account-name: backup-pageviews-before-running-ga-sync-export-to-csv${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}category-enable
-    batch-args: category:enable
-    service-account-name: category-enable${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}category-disable
-    batch-args: category:disable
-    service-account-name: category-disable${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}company-create-company
-    batch-args: company:create_company
-    service-account-name: company-create-company${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}convert-parts-ad-link
-    batch-args: convert_parts:ad_link
-    service-account-name: convert-parts-ad-link${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}embulk-generate
-    batch-args: embulk:generate
-    service-account-name: embulk-generate${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}embulk-export
-    batch-args: embulk:export
-    service-account-name: embulk-export${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}generate-books-execute
-    batch-args: generate_books:execute
-    service-account-name: generate-books-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}initialize-pickup-execute
-    batch-args: initialize_pickup:execute
-    service-account-name: initialize-pickup-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}kpi-sheet-write
-    batch-args: kpi_sheet:write
-    service-account-name: kpi-sheet-write${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}mail-magazine-deliver
-    batch-args: mail_magazine:deliver
-    service-account-name: mail-magazine-deliver${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}move-user-id-execute
-    batch-args: move_user_id:execute
-    service-account-name: move-user-id-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}nocopype-all
-    batch-args: nocopype:all
-    service-account-name: nocopype-all${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}api-routes
-    batch-args: api:routes
-    service-account-name: api-routes${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}test-users-create
-    batch-args: test_users:create
-    service-account-name: test-users-create${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}update-advertising-flag-execute
-    batch-args: update_advertising_flag:execute
-    service-account-name: update-advertising-flag-execute${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}update-picture-article-master
-    batch-args: update_picture:article_master
-    service-account-name: update-picture-article-master${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}update-picture-article-part
-    batch-args: update_picture:article_part
-    service-account-name: update-picture-article-part${{env.PREPEND}}
-  - batch-name: ${{env.PREFIX}}update-picture-user
-    batch-args: update_picture:user
-    service-account-name: update-picture-user${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-comotto-generate-rss-relations
+    batch-args: rss_comotto:generate_rss_relations
+    service-account-name: rss-comotto-generate-rss-relations${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-dmenu-news-generate-rss-relations
+    batch-args: rss_dmenu_news:generate_rss_relations
+    service-account-name: rss-dmenu-news-generate-rss-relations${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-excute-smartnew
+    batch-args: rss_relation:excute_smartnew
+    service-account-name: rss-relation-excute-smartnew${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}scraper-rss-execute
+    batch-args: scraper_rss:execute
+    service-account-name: scraper-rss-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}cp-relation-categories-execute
+    batch-args: cp_relation_categories:execute
+    service-account-name: cp-relation-categories-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}media-rss-feed-execute
+    batch-args: media_rss_feed:execute
+    service-account-name: media-rss-feed-execute${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-dmenu-news-export-to-file
+    batch-args: rss_dmenu_news:export_to_file
+    service-account-name: rss-dmenu-news-export-to-file${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-export-file
+    batch-args: rss_relation:export_file
+    service-account-name: rss-relation-export-file${{env.PREPEND}}
+  - batch-name: ${{env.PREFIX}}rss-relation-excute-google-news
+    batch-args: rss_relation:excute_google_news
+    service-account-name: rss-relation-excute-google-news${{env.PREPEND}}
