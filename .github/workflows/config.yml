@@ -1,217 +1,217 @@
 include:
-  - batch-name: $PREFIXpayment-info-execute
+  - batch-name: ${PREFIX}payment-info-execute
     batch-args: payment_info:execute
-    service-account-name: payment-info-execute$PREPEND
-  - batch-name: $PREFIXautoload-control-execute
+    service-account-name: payment-info-execute${PREPEND}
+  - batch-name: ${PREFIX}autoload-control-execute
     batch-args: autoload_control:execute
-    service-account-name: autoload-control-execute$PREPEND
-  - batch-name: $PREFIXuser-token-delete-expired
+    service-account-name: autoload-control-execute${PREPEND}
+  - batch-name: ${PREFIX}user-token-delete-expired
     batch-args: user_token:delete_expired
-    service-account-name: user-token-delete-expired$PREPEND
-  - batch-name: $PREFIXrepublish-article-execute
+    service-account-name: user-token-delete-expired${PREPEND}
+  - batch-name: ${PREFIX}republish-article-execute
     batch-args: republish_article:execute
-    service-account-name: republish-article-execute$PREPEND
-  - batch-name: $PREFIXtmp-cache-clear
+    service-account-name: republish-article-execute${PREPEND}
+  - batch-name: ${PREFIX}tmp-cache-clear
     batch-args: tmp:cache:clear
-    service-account-name: tmp-cache-clear$PREPEND
-  - batch-name: $PREFIXupdate-promotion-video-execute
+    service-account-name: tmp-cache-clear${PREPEND}
+  - batch-name: ${PREFIX}update-promotion-video-execute
     batch-args: update_promotion_video:execute
-    service-account-name: update-promotion-video-execute$PREPEND
-  - batch-name: $PREFIXaggregate-article-score
+    service-account-name: update-promotion-video-execute${PREPEND}
+  - batch-name: ${PREFIX}aggregate-article-score
     batch-args: aggregate:article_score
-    service-account-name: aggregate-article-score$PREPEND
-  - batch-name: $PREFIXaggregate-summary
+    service-account-name: aggregate-article-score${PREPEND}
+  - batch-name: ${PREFIX}aggregate-summary
     batch-args: aggregate:summary
-    service-account-name: aggregate-summary$PREPEND
-  - batch-name: $PREFIXupdate-pageviews-sync-ga
+    service-account-name: aggregate-summary${PREPEND}
+  - batch-name: ${PREFIX}update-pageviews-sync-ga
     batch-args: update_pageviews:sync_ga
-    service-account-name: update-pageviews-sync-ga$PREPEND
-  - batch-name: $PREFIXarticle-published-mail-send
+    service-account-name: update-pageviews-sync-ga${PREPEND}
+  - batch-name: ${PREFIX}article-published-mail-send
     batch-args: article_published_mail:send
-    service-account-name: article-published-mail-send$PREPEND
-  - batch-name: $PREFIXmail-magazine-deliver
+    service-account-name: article-published-mail-send${PREPEND}
+  - batch-name: ${PREFIX}mail-magazine-deliver
     batch-args: mail_magazine:deliver
-    service-account-name: mail-magazine-deliver$PREPEND
-  - batch-name: $PREFIXnocopype-today
+    service-account-name: mail-magazine-deliver${PREPEND}
+  - batch-name: ${PREFIX}nocopype-today
     batch-args: nocopype:today
-    service-account-name: nocopype-today$PREPEND
-  - batch-name: $PREFIXnotify-admins-execute
+    service-account-name: nocopype-today${PREPEND}
+  - batch-name: ${PREFIX}notify-admins-execute
     batch-args: notify_admins:execute
-    service-account-name: notify-admins-execute$PREPEND
-  - batch-name: $PREFIXrss-comotto-generate-rss-relations
+    service-account-name: notify-admins-execute${PREPEND}
+  - batch-name: ${PREFIX}rss-comotto-generate-rss-relations
     batch-args: rss_comotto:generate_rss_relations
-    service-account-name: rss-comotto-generate-rss-relations$PREPEND
-  - batch-name: $PREFIXrss-dmenu-news-generate-rss-relations
+    service-account-name: rss-comotto-generate-rss-relations${PREPEND}
+  - batch-name: ${PREFIX}rss-dmenu-news-generate-rss-relations
     batch-args: rss_dmenu_news:generate_rss_relations
-    service-account-name: rss-dmenu-news-generate-rss-relations$PREPEND
-  - batch-name: $PREFIXrss-relation-excute-smartnew
+    service-account-name: rss-dmenu-news-generate-rss-relations${PREPEND}
+  - batch-name: ${PREFIX}rss-relation-excute-smartnew
     batch-args: rss_relation:excute_smartnew
-    service-account-name: rss-relation-excute-smartnew$PREPEND
-  - batch-name: $PREFIXscraper-rss-execute
+    service-account-name: rss-relation-excute-smartnew${PREPEND}
+  - batch-name: ${PREFIX}scraper-rss-execute
     batch-args: scraper_rss:execute
-    service-account-name: scraper-rss-execute$PREPEND
-  - batch-name: $PREFIXcp-relation-categories-execute
+    service-account-name: scraper-rss-execute${PREPEND}
+  - batch-name: ${PREFIX}cp-relation-categories-execute
     batch-args: cp_relation_categories:execute
-    service-account-name: cp-relation-categories-execute$PREPEND
-  - batch-name: $PREFIXmedia-rss-feed-execute
+    service-account-name: cp-relation-categories-execute${PREPEND}
+  - batch-name: ${PREFIX}media-rss-feed-execute
     batch-args: media_rss_feed:execute
-    service-account-name: media-rss-feed-execute$PREPEND
-  - batch-name: $PREFIXgenerate-popular-execute
+    service-account-name: media-rss-feed-execute${PREPEND}
+  - batch-name: ${PREFIX}generate-popular-execute
     batch-args: generate_popular:execute
-    service-account-name: generate-popular-execute$PREPEND
-  - batch-name: $PREFIXsurvey-result-gen-csv
+    service-account-name: generate-popular-execute${PREPEND}
+  - batch-name: ${PREFIX}survey-result-gen-csv
     batch-args: survey_result:gen_csv
-    service-account-name: survey-result-gen-csv$PREPEND
-  - batch-name: $PREFIXexport-dmenu-xml
+    service-account-name: survey-result-gen-csv${PREPEND}
+  - batch-name: ${PREFIX}export-dmenu-xml
     batch-args: export:dmenu_xml
-    service-account-name: export-dmenu-xml$PREPEND
-  - batch-name: $PREFIXexport-dmenu-mmp-xml
+    service-account-name: export-dmenu-xml${PREPEND}
+  - batch-name: ${PREFIX}export-dmenu-mmp-xml
     batch-args: export:dmenu_mmp_xml
-    service-account-name: export-dmenu-mmp-xml$PREPEND
-  - batch-name: $PREFIXsurvey-result-gen-csv-article
+    service-account-name: export-dmenu-mmp-xml${PREPEND}
+  - batch-name: ${PREFIX}survey-result-gen-csv-article
     batch-args: survey_result:gen_csv_article
-    service-account-name: survey-result-gen-csv-article$PREPEND
-  - batch-name: $PREFIXremove-log-execute
+    service-account-name: survey-result-gen-csv-article${PREPEND}
+  - batch-name: ${PREFIX}remove-log-execute
     batch-args: remove_log:execute
-    service-account-name: remove-log-execute$PREPEND
-  - batch-name: $PREFIXrss-comotto-export-to-xml
+    service-account-name: remove-log-execute${PREPEND}
+  - batch-name: ${PREFIX}rss-comotto-export-to-xml
     batch-args: rss_comotto:export_to_xml
-    service-account-name: rss-comotto-export-to-xml$PREPEND
-  - batch-name: $PREFIXrss-dmenu-news-export-to-file
+    service-account-name: rss-comotto-export-to-xml${PREPEND}
+  - batch-name: ${PREFIX}rss-dmenu-news-export-to-file
     batch-args: rss_dmenu_news:export_to_file
-    service-account-name: rss-dmenu-news-export-to-file$PREPEND
-  - batch-name: $PREFIXrss-relation-export-file
+    service-account-name: rss-dmenu-news-export-to-file${PREPEND}
+  - batch-name: ${PREFIX}rss-relation-export-file
     batch-args: rss_relation:export_file
-    service-account-name: rss-relation-export-file$PREPEND
-  - batch-name: $PREFIXrss-relation-excute-google-news
+    service-account-name: rss-relation-export-file${PREPEND}
+  - batch-name: ${PREFIX}rss-relation-excute-google-news
     batch-args: rss_relation:excute_google_news
-    service-account-name: rss-relation-excute-google-news$PREPEND
-  - batch-name: $PREFIXarticle-master-update-bulk-update-republish
+    service-account-name: rss-relation-excute-google-news${PREPEND}
+  - batch-name: ${PREFIX}article-master-update-bulk-update-republish
     batch-args: article_master_update:bulk_update_republish
-    service-account-name: article-master-update-bulk-update-republish$PREPEND
-  - batch-name: $PREFIXchange-analysis-category-execute
+    service-account-name: article-master-update-bulk-update-republish${PREPEND}
+  - batch-name: ${PREFIX}change-analysis-category-execute
     batch-args: change_analysis_category:execute
-    service-account-name: change-analysis-category-execute$PREPEND
-  - batch-name: $PREFIXdefault-mymagazine-execute
+    service-account-name: change-analysis-category-execute${PREPEND}
+  - batch-name: ${PREFIX}default-mymagazine-execute
     batch-args: default_mymagazine:execute
-    service-account-name: default-mymagazine-execute$PREPEND
-  - batch-name: $PREFIXdefault-mymagazine-create-categories
+    service-account-name: default-mymagazine-execute${PREPEND}
+  - batch-name: ${PREFIX}default-mymagazine-create-categories
     batch-args: default_mymagazine:create_categories
-    service-account-name: default-mymagazine-create-categories$PREPEND
-  - batch-name: $PREFIXgod-slayer-execute
+    service-account-name: default-mymagazine-create-categories${PREPEND}
+  - batch-name: ${PREFIX}god-slayer-execute
     batch-args: god_slayer:execute
-    service-account-name: god-slayer-execute$PREPEND
-  - batch-name: $PREFIXimage-delete-all
+    service-account-name: god-slayer-execute${PREPEND}
+  - batch-name: ${PREFIX}image-delete-all
     batch-args: image_delete:all
-    service-account-name: image-delete-all$PREPEND
-  - batch-name: $PREFIXimage-delete-execute
+    service-account-name: image-delete-all${PREPEND}
+  - batch-name: ${PREFIX}image-delete-execute
     batch-args: image_delete:execute
-    service-account-name: image-delete-execute$PREPEND
-  - batch-name: $PREFIXimage-delete-remove-image-s3
+    service-account-name: image-delete-execute${PREPEND}
+  - batch-name: ${PREFIX}image-delete-remove-image-s3
     batch-args: image_delete:remove_image_s3
-    service-account-name: image-delete-remove-image-s3$PREPEND
-  - batch-name: $PREFIXnew-tag-auto-tagging
+    service-account-name: image-delete-remove-image-s3${PREPEND}
+  - batch-name: ${PREFIX}new-tag-auto-tagging
     batch-args: new_tag:auto_tagging
-    service-account-name: new-tag-auto-tagging$PREPEND
-  - batch-name: $PREFIXpaginate-articles-execute
+    service-account-name: new-tag-auto-tagging${PREPEND}
+  - batch-name: ${PREFIX}paginate-articles-execute
     batch-args: paginate_articles:execute
-    service-account-name: paginate-articles-execute$PREPEND
-  - batch-name: $PREFIXpush-autosend-execute
+    service-account-name: paginate-articles-execute${PREPEND}
+  - batch-name: ${PREFIX}push-autosend-execute
     batch-args: push_autosend:execute
-    service-account-name: push-autosend-execute$PREPEND
-  - batch-name: $PREFIXremove-accounts-execute
+    service-account-name: push-autosend-execute${PREPEND}
+  - batch-name: ${PREFIX}remove-accounts-execute
     batch-args: remove_accounts:execute
-    service-account-name: remove-accounts-execute$PREPEND
-  - batch-name: $PREFIXremove-users-execute
+    service-account-name: remove-accounts-execute${PREPEND}
+  - batch-name: ${PREFIX}remove-users-execute
     batch-args: remove_users:execute
-    service-account-name: remove-users-execute$PREPEND
-  - batch-name: $PREFIXrepublish-article-create-republish
+    service-account-name: remove-users-execute${PREPEND}
+  - batch-name: ${PREFIX}republish-article-create-republish
     batch-args: republish_article:create_republish
-    service-account-name: republish-article-create-republish$PREPEND
-  - batch-name: $PREFIXbatch-sync-app-views
+    service-account-name: republish-article-create-republish${PREPEND}
+  - batch-name: ${PREFIX}batch-sync-app-views
     batch-args: batch:sync_app_views
-    service-account-name: batch-sync-app-views$PREPEND
-  - batch-name: $PREFIXbatch-sync-app-views-yesterday
+    service-account-name: batch-sync-app-views${PREPEND}
+  - batch-name: ${PREFIX}batch-sync-app-views-yesterday
     batch-args: batch:sync_app_views_yesterday
-    service-account-name: batch-sync-app-views-yesterday$PREPEND
-  - batch-name: $PREFIXwriter-books-execute
+    service-account-name: batch-sync-app-views-yesterday${PREPEND}
+  - batch-name: ${PREFIX}writer-books-execute
     batch-args: writer_books:execute
-    service-account-name: writer-books-execute$PREPEND
-  - batch-name: $PREFIXwriter-permission-execute
+    service-account-name: writer-books-execute${PREPEND}
+  - batch-name: ${PREFIX}writer-permission-execute
     batch-args: writer_permission:execute
-    service-account-name: writer-permission-execute$PREPEND
-  - batch-name: $PREFIXamana-ids-sheet-write
+    service-account-name: writer-permission-execute${PREPEND}
+  - batch-name: ${PREFIX}amana-ids-sheet-write
     batch-args: amana_ids_sheet:write
-    service-account-name: amana-ids-sheet-write$PREPEND
-  - batch-name: $PREFIXarticle-relation-update-for-old-data
+    service-account-name: amana-ids-sheet-write${PREPEND}
+  - batch-name: ${PREFIX}article-relation-update-for-old-data
     batch-args: article_relation:update_for_old_data
-    service-account-name: article-relation-update-for-old-data$PREPEND
-  - batch-name: $PREFIXarticle-views-sync-ga
+    service-account-name: article-relation-update-for-old-data${PREPEND}
+  - batch-name: ${PREFIX}article-views-sync-ga
     batch-args: article_views:sync_ga
-    service-account-name: article-views-sync-ga$PREPEND
-  - batch-name: $PREFIXset-annotation-options
+    service-account-name: article-views-sync-ga${PREPEND}
+  - batch-name: ${PREFIX}set-annotation-options
     batch-args: set_annotation_options
-    service-account-name: set-annotation-options$PREPEND
-  - batch-name: $PREFIXautoload-permit-at-app-permit-all
+    service-account-name: set-annotation-options${PREPEND}
+  - batch-name: ${PREFIX}autoload-permit-at-app-permit-all
     batch-args: autoload_permit_at_app:permit_all
-    service-account-name: autoload-permit-at-app-permit-all$PREPEND
-  - batch-name: $PREFIXautoload-permit-at-app-prohibit-all
+    service-account-name: autoload-permit-at-app-permit-all${PREPEND}
+  - batch-name: ${PREFIX}autoload-permit-at-app-prohibit-all
     batch-args: autoload_permit_at_app:prohibit_all
-    service-account-name: autoload-permit-at-app-prohibit-all$PREPEND
-  - batch-name: $PREFIXbackup-pageviews-before-running-ga-sync-export-to-csv
+    service-account-name: autoload-permit-at-app-prohibit-all${PREPEND}
+  - batch-name: ${PREFIX}backup-pageviews-before-running-ga-sync-export-to-csv
     batch-args: backup_pageviews_before_running_ga_sync:export_to_csv
-    service-account-name: backup-pageviews-before-running-ga-sync-export-to-csv$PREPEND
-  - batch-name: $PREFIXcategory-enable
+    service-account-name: backup-pageviews-before-running-ga-sync-export-to-csv${PREPEND}
+  - batch-name: ${PREFIX}category-enable
     batch-args: category:enable
-    service-account-name: category-enable$PREPEND
-  - batch-name: $PREFIXcategory-disable
+    service-account-name: category-enable${PREPEND}
+  - batch-name: ${PREFIX}category-disable
     batch-args: category:disable
-    service-account-name: category-disable$PREPEND
-  - batch-name: $PREFIXcompany-create-company
+    service-account-name: category-disable${PREPEND}
+  - batch-name: ${PREFIX}company-create-company
     batch-args: company:create_company
-    service-account-name: company-create-company$PREPEND
-  - batch-name: $PREFIXconvert-parts-ad-link
+    service-account-name: company-create-company${PREPEND}
+  - batch-name: ${PREFIX}convert-parts-ad-link
     batch-args: convert_parts:ad_link
-    service-account-name: convert-parts-ad-link$PREPEND
-  - batch-name: $PREFIXembulk-generate
+    service-account-name: convert-parts-ad-link${PREPEND}
+  - batch-name: ${PREFIX}embulk-generate
     batch-args: embulk:generate
-    service-account-name: embulk-generate$PREPEND
-  - batch-name: $PREFIXembulk-export
+    service-account-name: embulk-generate${PREPEND}
+  - batch-name: ${PREFIX}embulk-export
     batch-args: embulk:export
-    service-account-name: embulk-export$PREPEND
-  - batch-name: $PREFIXgenerate-books-execute
+    service-account-name: embulk-export${PREPEND}
+  - batch-name: ${PREFIX}generate-books-execute
     batch-args: generate_books:execute
-    service-account-name: generate-books-execute$PREPEND
-  - batch-name: $PREFIXinitialize-pickup-execute
+    service-account-name: generate-books-execute${PREPEND}
+  - batch-name: ${PREFIX}initialize-pickup-execute
     batch-args: initialize_pickup:execute
-    service-account-name: initialize-pickup-execute$PREPEND
-  - batch-name: $PREFIXkpi-sheet-write
+    service-account-name: initialize-pickup-execute${PREPEND}
+  - batch-name: ${PREFIX}kpi-sheet-write
     batch-args: kpi_sheet:write
-    service-account-name: kpi-sheet-write$PREPEND
-  - batch-name: $PREFIXmail-magazine-deliver
+    service-account-name: kpi-sheet-write${PREPEND}
+  - batch-name: ${PREFIX}mail-magazine-deliver
     batch-args: mail_magazine:deliver
-    service-account-name: mail-magazine-deliver$PREPEND
-  - batch-name: $PREFIXmove-user-id-execute
+    service-account-name: mail-magazine-deliver${PREPEND}
+  - batch-name: ${PREFIX}move-user-id-execute
     batch-args: move_user_id:execute
-    service-account-name: move-user-id-execute$PREPEND
-  - batch-name: $PREFIXnocopype-all
+    service-account-name: move-user-id-execute${PREPEND}
+  - batch-name: ${PREFIX}nocopype-all
     batch-args: nocopype:all
-    service-account-name: nocopype-all$PREPEND
-  - batch-name: $PREFIXapi-routes
+    service-account-name: nocopype-all${PREPEND}
+  - batch-name: ${PREFIX}api-routes
     batch-args: api:routes
-    service-account-name: api-routes$PREPEND
-  - batch-name: $PREFIXtest-users-create
+    service-account-name: api-routes${PREPEND}
+  - batch-name: ${PREFIX}test-users-create
     batch-args: test_users:create
-    service-account-name: test-users-create$PREPEND
-  - batch-name: $PREFIXupdate-advertising-flag-execute
+    service-account-name: test-users-create${PREPEND}
+  - batch-name: ${PREFIX}update-advertising-flag-execute
     batch-args: update_advertising_flag:execute
-    service-account-name: update-advertising-flag-execute$PREPEND
-  - batch-name: $PREFIXupdate-picture-article-master
+    service-account-name: update-advertising-flag-execute${PREPEND}
+  - batch-name: ${PREFIX}update-picture-article-master
     batch-args: update_picture:article_master
-    service-account-name: update-picture-article-master$PREPEND
-  - batch-name: $PREFIXupdate-picture-article-part
+    service-account-name: update-picture-article-master${PREPEND}
+  - batch-name: ${PREFIX}update-picture-article-part
     batch-args: update_picture:article_part
-    service-account-name: update-picture-article-part$PREPEND
-  - batch-name: $PREFIXupdate-picture-user
+    service-account-name: update-picture-article-part${PREPEND}
+  - batch-name: ${PREFIX}update-picture-user
     batch-args: update_picture:user
-    service-account-name: update-picture-user$PREPEND
+    service-account-name: update-picture-user${PREPEND}
