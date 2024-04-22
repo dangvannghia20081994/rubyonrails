@@ -32,11 +32,12 @@ jobs:
     env:
       PREFIX: s-cnb-
       PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Check task ${{ matrix.batch-name }}
+      - name: Check task with matrix
         run: |
           echo ${{ matrix.batch-name}}
           echo ${{ matrix.service-account-name}}

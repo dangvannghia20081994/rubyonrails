@@ -1,5 +1,5 @@
 include:
-  - batch-name: "${{ env.PREFIX }}payment-info-execute"
+  - batch-name: $PREFIX"payment-info-execute"
     batch-args: payment_info:execute
     service-account-name: payment-info-execute$PREPEND
   - batch-name: $PREFIX"autoload-control-execute"
