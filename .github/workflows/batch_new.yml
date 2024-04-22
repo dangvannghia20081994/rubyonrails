@@ -9,10 +9,6 @@ permissions:
   contents: read
   id-token: write
 
-env:
-  PREFIX: s-cnb-
-  PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
-
 jobs:
   matrix:
     name: Generate output
@@ -33,6 +29,9 @@ jobs:
     needs: [matrix]
     strategy:
       matrix: ${{ fromJSON(needs.matrix.outputs.matrix) }}
+    env:
+      PREFIX: s-cnb-
+      PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
