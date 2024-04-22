@@ -22,13 +22,13 @@ jobs:
       - id: step1
         name: Convert config from YAML to JSON and pass it as value to matrix
         run: |
-          envsubst < ./.github/workflows/config.yml
-          matrix="matrix=$(yq -P -o=json ./.github/workflows/config.yml | jq -c .)"
+          envsubst < ./.github/workflows/config.yml > ./.github/workflows/config.yaml
+          matrix="matrix=$(yq -P -o=json ./.github/workflows/config.yaml | jq -c .)"
           echo $matrix
           echo $matrix >> $GITHUB_OUTPUT
         env:
-          PREFIX: s-cnb-
-          PREPEND: "@prj-docomo-mamatena-s-d568c051.iam.gs"
+          PREFIX: 's-cnb-'
+          PREPEND: '@prj-docomo-mamatena-s-d568c051.iam.gs'
 
   deploy-staging:
     needs: [matrix]
